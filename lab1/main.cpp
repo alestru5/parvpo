@@ -2,6 +2,8 @@
 #include <chrono>
 #include <thread>
 #include <vector>
+#include <fstream>
+#include <cmath>
 
 #define START_RANGE 10
 #define END_RANGE 100000000
@@ -43,7 +45,16 @@ int main() {
 
     std::chrono::duration<double> elapsed = end - start;
 
-    std::cout << "Time elapsed: " << elapsed.count() << " seconds" << std::endl;
+    std::ofstream outputFile("result.txt");
+    if (!outputFile) {
+        std::cerr << "Unable to open file for writing" << std::endl;
+        return 1;
+    }
 
+    outputFile << std::endl;
+
+    outputFile << "Time elapsed: " << elapsed.count() << " seconds" << std::endl;
+
+    outputFile.close();
     return 0;
 }

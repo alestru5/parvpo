@@ -2,10 +2,10 @@ FROM alpine:latest
 
 RUN apk add --no-cache g++ git
 
-RUN git clone https://github.com/alestru5/parvpo /lab1
+RUN git clone https://github.com/alestru5/parvpo /src
 
-WORKDIR /lab1
+WORKDIR /src
 
-RUN g++ -o main ./lab1/main.cpp
+RUN g++ -o main lab1/main.cpp
 
-CMD ["./main", ">", "/output/lab1/result.txt"]
+CMD ["./main"]
