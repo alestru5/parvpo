@@ -4,7 +4,7 @@
 #include <vector>
 
 #define START_RANGE 10
-#define END_RANGE 10000000
+#define END_RANGE 100000000
 
 std::vector<int> findPrimesInRange(int start, int end) {
     if (start > end) {
@@ -35,13 +35,15 @@ std::vector<int> findPrimesInRange(int start, int end) {
 }
 
 int main() {
+    auto start = std::chrono::high_resolution_clock::now();
+
     std::vector<int> primes = findPrimesInRange(START_RANGE, END_RANGE);
 
-    std::cout << "Prime numbers in the range [" << START_RANGE << ", " << END_RANGE << "]:\n";
-    for (int prime : primes) {
-        std::cout << prime << " ";
-    }
-    std::cout << std::endl;
+    auto end = std::chrono::high_resolution_clock::now();
+
+    std::chrono::duration<double> elapsed = end - start;
+
+    std::cout << "Time elapsed: " << elapsed.count() << " seconds" << std::endl;
 
     return 0;
 }
