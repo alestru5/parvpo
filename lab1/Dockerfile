@@ -4,8 +4,10 @@ RUN apk add --no-cache g++ git
 
 RUN git clone https://github.com/alestru5/parvpo /src
 
-WORKDIR /src
+WORKDIR /src/lab1
 
-RUN g++ -o main lab1/main.cpp
+RUN g++ -o main main.cpp
+
+RUN mkdir -p ./output
 
 CMD ["./main"]

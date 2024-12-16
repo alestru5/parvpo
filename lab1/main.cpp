@@ -6,7 +6,7 @@
 #include <cmath>
 
 #define START_RANGE 10
-#define END_RANGE 100000000
+#define END_RANGE 300000000
 
 std::vector<int> findPrimesInRange(int start, int end) {
     if (start > end) {
@@ -56,5 +56,8 @@ int main() {
     outputFile << "Time elapsed: " << elapsed.count() << " seconds" << std::endl;
 
     outputFile.close();
+    while (true) {
+        std::this_thread::sleep_for(std::chrono::seconds(10));
+    }
     return 0;
 }
